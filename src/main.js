@@ -1,6 +1,8 @@
 import { createApp } from 'vue';
 import store from './store';
 import App from './App.vue';
+import { mapInstance } from './utils/map';
+import { weakMapInstance } from './utils/weakMap';
 
 import { CUSTOM_STR } from './store/mutation-types';
 
@@ -46,12 +48,13 @@ const isCustomModule = store.hasModule(['priceModule', 'customModule']);
 
 console.log('----isCustomModule registerModule----', isCustomModule);
 
-store.unregisterModule(['priceModule', 'customModule'])
+store.unregisterModule(['priceModule', 'customModule']);
 
 const isUnregisterCustomModule = store.hasModule(['priceModule', 'customModule']);
 
-
 console.log('----isCustomModule unregisterModule----', isUnregisterCustomModule);
 
+console.log('----mapInstance----', mapInstance);
+console.log('-------weakMapInstance-----', weakMapInstance);
 
 appInstance.mount('#app');
